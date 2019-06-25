@@ -1,4 +1,6 @@
-﻿using GameChange.Views;
+﻿using GameChange.Services;
+using GameChange.ViewModels;
+using GameChange.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using static GameChange.ViewModels.ViewModelLocator;
 
 namespace GameChange
 {
@@ -16,18 +19,17 @@ namespace GameChange
     {
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void Create_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CreatePageView());
+            NavigationService.GetNavigationService.NavigateTo(NavigatePage.CreateView.ToString(), null);
         }
 
         private void View_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ListPageView());
-
+            NavigationService.GetNavigationService.NavigateTo(NavigatePage.ListView.ToString(),null);
         }
     }
 }

@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 
 namespace GameChange.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreatePageView : ContentPage
     {
         public CreatePageView()

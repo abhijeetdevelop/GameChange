@@ -4,11 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GameChange.MainPage">
-
-    <StackLayout>
+             x:Class="GameChange.MainPage">    
+    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
         <Button HorizontalOptions="Start" VerticalOptions="Center" Text="Create" Clicked="Create_Clicked"/>
-        <Button HorizontalOptions="End" VerticalOptions="Center" Text="View" Clicked="View_Clicked"/>
+        <Button HorizontalOptions="Center" VerticalOptions="Center" Text="View" Clicked="View_Clicked"/>        
     </StackLayout>
-
 </ContentPage>

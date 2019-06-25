@@ -9,7 +9,6 @@ namespace GameChange
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
         }
 

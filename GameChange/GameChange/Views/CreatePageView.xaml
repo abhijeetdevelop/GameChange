@@ -4,12 +4,41 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:control="clr-namespace:GameChange.Controls"
+             BindingContext="{Binding Path=EmployeesVM, Source={StaticResource VMLocator} }"
              x:Class="GameChange.Views.CreatePageView">
+    <ContentPage.Resources>
+        <Style x:Key="TitleStyle" TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+        <Style x:Key="EntryStyle" TargetType="control:BorderlessEntry">
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="VerticalOptions" Value="Start"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Create Screen"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Employee" FontSize="Large"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Name" Style="{StaticResource TitleStyle}"/>
+                    <control:BorderlessEntry Text="{Binding SelectedEmployee.Name}" Style="{StaticResource EntryStyle}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Age" Style="{StaticResource TitleStyle}"/>
+                    <control:BorderlessEntry Text="{Binding SelectedEmployee.Age}" Style="{StaticResource EntryStyle}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Salary" Style="{StaticResource TitleStyle}"/>
+                    <control:BorderlessEntry Text="{Binding SelectedEmployee.Salary}" Style="{StaticResource EntryStyle}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Image" Style="{StaticResource TitleStyle}"/>
+                    <control:BorderlessEntry Text="{Binding SelectedEmployee.Image}" Style="{StaticResource EntryStyle}"/>
+                </StackLayout>
+                <Button Text="Save" Command="{Binding SaveRecordCommand}" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -3,13 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="GameChange.Views.ListPageView">
+             BindingContext="{Binding Path=EmployeesVM, Source={StaticResource VMLocator} }"
+    x:Class="GameChange.Views.ListPageView"
+             x:Name="ListViewXaml">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="List screen"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="List" ItemsSource="{Binding Employees}" SeparatorColor="DarkBlue" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="WhiteSmoke" VerticalOptions="FillAndExpand">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewcellTappedCommand, Source={x:Reference ListViewXaml}}" CommandParameter="{Binding .}"/> 
+                                </StackLayout.GestureRecognizers>
+                                <Label Text="{Binding Name}" TextColor="Black"/>
+                                <Label Text="{Binding Salary}" TextColor="Black"/>
+                                <Label Text="{Binding Image}" TextColor="Black"/>
+                                <Label Text="{Binding Age}" TextColor="Black"/>                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
